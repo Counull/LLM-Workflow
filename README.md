@@ -59,8 +59,8 @@ Before committing to this public repository, verify that the change is reusable 
 
 This workflow is inspired by Andrej Karpathy's LLM Wiki pattern:
 
-- Gist: <https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f>
-- Raw Markdown: <https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f/raw/ac46de1ad27f92b28ac95459c782c07f6b8c964a/llm-wiki.md>
+- Gist page: [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+- Raw Markdown: [llm-wiki.md](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f/raw/ac46de1ad27f92b28ac95459c782c07f6b8c964a/llm-wiki.md)
 
 Embed snippet for systems that support GitHub Gist embedding:
 

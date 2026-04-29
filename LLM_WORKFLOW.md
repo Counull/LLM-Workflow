@@ -184,3 +184,10 @@ Agents maintaining an instance should:
 5. Mark uncertainty explicitly.
 6. Add a follow-up item instead of guessing when source context is missing.
 7. Keep public workflow files free of private context.
+
+## 11. Inspiration
+
+This workflow is inspired by Andrej Karpathy's LLM Wiki pattern:
+
+- Gist page: [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+- Raw Markdown: [llm-wiki.md](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f/raw/ac46de1ad27f92b28ac95459c782c07f6b8c964a/llm-wiki.md)

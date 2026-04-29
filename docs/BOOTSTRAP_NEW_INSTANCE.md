@@ -1,0 +1,84 @@
+# Bootstrap a New Workflow Instance
+
+Use this checklist when starting a new private workflow instance for a project, client, research topic, or personal workspace.
+
+## 1. Keep the Repository Roles Separate
+
+| Place | Role |
+|---|---|
+| `LLM-Workflow` | Public canonical workflow rules, templates, and publication guard. |
+| `UniSkills` | Runtime skills that agents can invoke. |
+| Private instance | Project facts, raw sources, meeting notes, feature indexes, and implementation decisions. |
+
+Do not copy private instance content into `LLM-Workflow` or `UniSkills`.
+
+## 2. Install or Update Runtime Skills
+
+Copilot skills are not automatically discovered just because a repository contains a `skills/` folder.
+
+Keep runtime skills in the user's configured skills location, using `UniSkills` as the source of truth. Example locations:
+
+```text
+<user-home>/.copilot/skills/
+<configured-copilot-skills-path>/
+```
+
+Recommended setup:
+
+1. Clone or pull `UniSkills` into the user-level skills location.
+2. Confirm the `llm-workflow-maintainer` skill exists there.
+3. Do not vendor runtime skills into a project or workflow repository.
+
+## 3. Create a Private Instance Layout
+
+Start from [templates/instance-layout.md](../templates/instance-layout.md), then localize names if needed.
+
+Recommended roles:
+
+```text
+00_inbox/
+01_requirements/
+02_index/
+03_design/
+04_research/
+05_development-log/
+06_testing/
+07_retrospective/
+08_tools/
+09_meetings/
+99_archive/
+AGENTS.md
+README.md
+```
+
+Do not create a second full copy of `LLM_WORKFLOW.md` in the private instance unless it is only a tiny pointer file. Prefer linking to the canonical workflow document.
+
+## 4. Add Instance Agent Instructions
+
+The private instance `AGENTS.md` should include:
+
+1. Link to the canonical workflow: `LLM-Workflow/LLM_WORKFLOW.md` or the public repository URL.
+2. Link to the local index.
+3. Link to the local README.
+4. Private project constraints and source locations.
+5. A public/private boundary rule: generic workflow changes go to `LLM-Workflow`; instance facts stay private.
+
+Keep `AGENTS.md` short. It is an entry point, not the full workflow manual.
+
+## 5. Create an Index First
+
+Use [templates/feature-index.md](../templates/feature-index.md) or a localized equivalent.
+
+The index should be the first place an agent reads when answering project-specific questions.
+
+## 6. Publication Check
+
+Before pushing reusable workflow or skill changes to a public repository, check for:
+
+- Company, client, or project names.
+- Private source paths or local machine paths.
+- Proprietary requirements, code, diffs, issue IDs, or commit IDs.
+- Meeting transcripts, meeting decisions, or participant data.
+- Credentials, endpoints, accounts, or environment details.
+
+If content only makes sense inside one private instance, keep it out of public repositories.

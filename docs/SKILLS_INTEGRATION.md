@@ -17,6 +17,8 @@ Public skills repository:
 
 Do not vendor skills into this workflow repository. Link to the skills repository and document how the workflow should call skills.
 
+Runtime skills should live in the user's configured Copilot skills location, using `UniSkills` as the source of truth. A `skills/` folder inside a random project or workflow repository should be treated as documentation or staging only unless the host tool explicitly supports loading skills from that path.
+
 ## Skill Categories
 
 Suggested public-safe skill categories:
@@ -28,6 +30,12 @@ Suggested public-safe skill categories:
 | workflow-lint | Check links, stale claims, orphan pages, and public/private boundary violations. |
 | feature-index-update | Update a feature or topic index after new documents are created. |
 | publication-scan | Scan public workflow changes for private context. |
+
+Recommended concrete skill:
+
+| Skill | Repository | Purpose |
+|---|---|---|
+| `llm-workflow-maintainer` | `UniSkills` | Thin execution layer for using this workflow, updating indexes, routing private/public content, and running publication checks. |
 
 ## Private vs Public Skills
 
@@ -50,3 +58,5 @@ When maintaining this workflow:
 3. Keep project-specific skill variants in private workspace folders.
 4. Mention skills by capability, not by private project context.
 5. Run a publication scan before pushing either repository.
+
+For bootstrapping a new private instance, see [BOOTSTRAP_NEW_INSTANCE.md](BOOTSTRAP_NEW_INSTANCE.md).

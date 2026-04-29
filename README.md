@@ -24,6 +24,7 @@ The reusable part lives in this repository. Each company, project, or private wo
 | [AGENTS.md](AGENTS.md) | Agent-facing rules for maintaining this repository. |
 | [docs/PUBLICATION_GUARD.md](docs/PUBLICATION_GUARD.md) | Rules that prevent reusable workflow files from being polluted by private context. |
 | [docs/SKILLS_INTEGRATION.md](docs/SKILLS_INTEGRATION.md) | How this workflow should interact with a separate skills repository. |
+| [docs/BOOTSTRAP_NEW_INSTANCE.md](docs/BOOTSTRAP_NEW_INSTANCE.md) | Checklist for starting a new private workflow instance. |
 | [templates/](templates/) | Public-safe templates for indexes, meetings, source notes, and workflow instances. |
 
 ## Recommended Instance Layout
@@ -54,6 +55,8 @@ Before committing to this public repository, verify that the change is reusable 
 
 - Skills repository: <https://github.com/Counull/UniSkills.git>
 - Workflow repository: <https://github.com/Counull/LLM-Workflow.git>
+
+For new projects, follow [docs/BOOTSTRAP_NEW_INSTANCE.md](docs/BOOTSTRAP_NEW_INSTANCE.md).
 
 ## Inspiration
 

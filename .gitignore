@@ -1,0 +1,30 @@
+# Private or instance-specific content
+private/
+instances/
+raw/
+inbox/
+meetings/
+archive/
+
+# Potentially sensitive source files
+*.mp3
+*.m4a
+*.wav
+*.mp4
+*.mov
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.obsidian/workspace*.json
+.obsidian/cache/
+.vscode/
+
+# Local scratch
+*.tmp
+*.bak
+*.log

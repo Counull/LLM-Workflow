@@ -127,7 +127,39 @@ Use explicit confidence labels:
 
 Do not present inferred or superseded claims as current facts.
 
-## 7. Public vs Private Boundary
+## 7. Document Page Rules
+
+Important knowledge-layer pages should include enough metadata for a future reader or agent to evaluate the claim without replaying the whole conversation.
+
+Recommended fields:
+
+| Field | Purpose |
+|---|---|
+| Date | When the page or decision was created. |
+| Scope | Version, project, feature, topic, or time range the page applies to. |
+| Source | Original document, meeting, diff, link, transcript, or other source reference. |
+| Current Conclusion | The best current understanding. |
+| Decision Rationale | Why this path was chosen over alternatives. |
+| Risks | Known risks, edge cases, or blast radius. |
+| Open Questions | Items that still require confirmation. |
+| Follow-up | Validation, testing, implementation, or documentation actions. |
+
+Keep reusable workflow files concise. Put instance-specific details in the private instance pages.
+
+## 8. Assets and Images
+
+Image handling is instance-specific, but these rules are portable:
+
+| Case | Recommendation |
+|---|---|
+| Small image tightly bound to one private note | A base64 data URI can be acceptable if the instance owner values single-file portability. |
+| Long-lived or reviewed documentation | Prefer an `assets/` folder and relative links. |
+| Public reusable workflow files | Avoid embedding private screenshots or binary assets. Use abstract diagrams or placeholders. |
+| External wiki tools | Test compatibility before relying on base64 or embedded HTML. |
+
+If base64 is used in a private instance, keep images small and accept that diffs will be hard to review.
+
+## 9. Public vs Private Boundary
 
 Reusable workflow rules, templates, and generic examples can be public.
 
@@ -141,7 +173,7 @@ Instance-specific materials must stay private:
 
 See [docs/PUBLICATION_GUARD.md](docs/PUBLICATION_GUARD.md) before publishing changes.
 
-## 8. Agent Rules
+## 10. Agent Rules
 
 Agents maintaining an instance should:
 

@@ -54,6 +54,7 @@ Before committing to this public repository, verify that the change is reusable 
 ## Related Repositories
 
 - Skills repository: <https://github.com/Counull/UniSkills.git>
+- Runtime skill: [llm-workflow-maintainer](https://github.com/Counull/UniSkills/tree/main/llm-workflow-maintainer)
 - Workflow repository: <https://github.com/Counull/LLM-Workflow.git>
 
 For new projects, follow [docs/BOOTSTRAP_NEW_INSTANCE.md](docs/BOOTSTRAP_NEW_INSTANCE.md).
@@ -70,3 +71,4 @@ Embed snippet for systems that support GitHub Gist embedding:
 ```html
 <script src="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f.js"></script>
 ```
+

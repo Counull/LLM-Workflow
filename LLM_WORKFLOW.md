@@ -30,6 +30,22 @@ The goal is not to upload every file to an LLM and rediscover context on each qu
 | `09_meetings` | Meeting audio references, transcripts, summaries. | `transcript.md`, `summary.md`. |
 | `99_archive` | Inactive or historical materials. | Archived notes and old drafts. |
 
+### 3.1 Runtime Entry and Local Registry
+
+A workflow instance may be maintained through a runtime skill and a custom agent, but local machine paths must stay outside public workflow files.
+
+Recommended split:
+
+| Item | Recommended Place | Notes |
+|---|---|---|
+| Runtime skills | User-configured skills location, sourced from the skills repository. | Do not vendor skills into this workflow repository. |
+| Custom agent template | Skills repository. | Bootstrap can install it into the VS Code user or workspace agents directory. |
+| Installed custom agent | VS Code user `agents/` or workspace `.github/agents/`. | Keep it generic; do not hardcode a private instance path. |
+| Local instance link | `~/.llm-wiki/instances.json`. | Machine-local registry that maps instance IDs to paths. |
+| Human entry point | Private instance `README.md`. | Describe the instance without relying on an absolute local path. |
+
+See [docs/INSTANCE_REGISTRY.md](docs/INSTANCE_REGISTRY.md) for the registry format.
+
 ## 4. Standard Operations
 
 ### 4.1 Ingest

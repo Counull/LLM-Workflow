@@ -12,7 +12,7 @@ Use this checklist when starting a new private workflow instance for a project, 
 
 Do not copy private instance content into `LLM-Workflow` or `UniSkills`.
 
-## 2. Install or Update Runtime Skills
+## 2. Install or Update Runtime Skills and Agent
 
 Copilot skills are not automatically discovered just because a repository contains a `skills/` folder.
 
@@ -27,9 +27,44 @@ Recommended setup:
 
 1. Clone or pull `UniSkills` into the user-level skills location.
 2. Confirm the `llm-workflow-maintainer` skill exists there.
-3. Do not vendor runtime skills into a project or workflow repository.
+3. Install or update the LLM Wiki custom agent from the skills repository into the VS Code user agents directory, or into the target workspace `.github/agents/` when the agent should be project-scoped.
+4. Keep the installed agent generic. It may know how to read an instance registry, but it must not hardcode a private instance path.
+5. Do not vendor runtime skills into a project or workflow repository.
 
-## 3. Create a Private Instance Layout
+## 3. Register the Local Instance Link
+
+The private instance path is machine-local state. Store it in a local registry instead of the public workflow repository or a synced agent template.
+
+Default registry location:
+
+```text
+~/.llm-wiki/instances.json
+```
+
+Recommended shape:
+
+```json
+{
+	"schemaVersion": 1,
+	"defaultInstanceId": "instance-id",
+	"instances": [
+		{
+			"id": "instance-id",
+			"name": "Instance Display Name",
+			"path": "path/to/private-instance",
+			"scope": "private",
+			"canonicalWorkflowRepo": "https://github.com/Counull/LLM-Workflow.git",
+			"skillsRepo": "https://github.com/Counull/UniSkills.git",
+			"createdAt": "YYYY-MM-DD",
+			"updatedAt": "YYYY-MM-DD"
+		}
+	]
+}
+```
+
+If multiple instances exist, the agent should ask for an instance ID unless `defaultInstanceId` is set.
+
+## 4. Create a Private Instance Layout
 
 Start from [templates/instance-layout.md](../templates/instance-layout.md), then localize names if needed.
 
@@ -53,7 +88,7 @@ README.md
 
 Do not create a second full copy of `LLM_WORKFLOW.md` in the private instance unless it is only a tiny pointer file. Prefer linking to the canonical workflow document.
 
-## 4. Add Instance Agent Instructions
+## 5. Add Instance Agent Instructions
 
 The private instance `AGENTS.md` should include:
 
@@ -65,13 +100,13 @@ The private instance `AGENTS.md` should include:
 
 Keep `AGENTS.md` short. It is an entry point, not the full workflow manual.
 
-## 5. Create an Index First
+## 6. Create an Index First
 
 Use [templates/feature-index.md](../templates/feature-index.md) or a localized equivalent.
 
 The index should be the first place an agent reads when answering project-specific questions.
 
-## 6. Publication Check
+## 7. Publication Check
 
 Before pushing reusable workflow or skill changes to a public repository, check for:
 

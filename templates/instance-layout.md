@@ -16,7 +16,7 @@ Use this as a private workspace layout. Do not commit private instances to the p
 99_archive/
 AGENTS.md
 README.md
-LLM_WORKFLOW.md
+LLM_WORKFLOW.md      optional pointer only
 ```
 
 ## Instance Rules
@@ -26,3 +26,4 @@ LLM_WORKFLOW.md
 3. Update the feature or topic index after adding durable documents.
 4. Mark uncertainty and source confidence explicitly.
 5. Do not publish instance-specific documents unless they are reviewed and fully sanitized.
+6. Keep machine-local absolute paths in `~/.llm-wiki/instances.json`, not in public workflow files or synced agent templates.

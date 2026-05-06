@@ -19,6 +19,20 @@ Do not vendor skills into this workflow repository. Link to the skills repositor
 
 Runtime skills should live in the user's configured Copilot skills location, using `UniSkills` as the source of truth. A `skills/` folder inside a random project or workflow repository should be treated as documentation or staging only unless the host tool explicitly supports loading skills from that path.
 
+## Runtime Agent Integration
+
+The skills repository may also provide custom agent templates that are installed during bootstrap.
+
+Recommended split:
+
+| Asset | Source of Truth | Installed To |
+|---|---|---|
+| `llm-workflow-maintainer` skill | `UniSkills` | User-configured Copilot skills location. |
+| `LLM Wiki Sync` agent template | `UniSkills` | VS Code user `agents/` or workspace `.github/agents/`. |
+| Local instance registry | User machine | `~/.llm-wiki/instances.json`. |
+
+The installed agent should resolve private instance paths through the registry. Do not hardcode an instance path in a public skill or a synced agent template.
+
 ## Skill Categories
 
 Suggested public-safe skill categories:

@@ -24,6 +24,7 @@ The reusable part lives in this repository. Each company, project, or private wo
 | [AGENTS.md](AGENTS.md) | Agent-facing rules for maintaining this repository. |
 | [docs/PUBLICATION_GUARD.md](docs/PUBLICATION_GUARD.md) | Rules that prevent reusable workflow files from being polluted by private context. |
 | [docs/SKILLS_INTEGRATION.md](docs/SKILLS_INTEGRATION.md) | How this workflow should interact with a separate skills repository. |
+| [docs/INSTANCE_REGISTRY.md](docs/INSTANCE_REGISTRY.md) | Where local instance links live and how agents resolve them. |
 | [docs/BOOTSTRAP_NEW_INSTANCE.md](docs/BOOTSTRAP_NEW_INSTANCE.md) | Checklist for starting a new private workflow instance. |
 | [templates/](templates/) | Public-safe templates for indexes, meetings, source notes, and workflow instances. |
 
@@ -65,10 +66,4 @@ This workflow is inspired by Andrej Karpathy's LLM Wiki pattern:
 
 - Gist page: [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 - Raw Markdown: [llm-wiki.md](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f/raw/ac46de1ad27f92b28ac95459c782c07f6b8c964a/llm-wiki.md)
-
-Embed snippet for systems that support GitHub Gist embedding:
-
-```html
-<script src="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f.js"></script>
-```
 

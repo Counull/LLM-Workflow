@@ -13,6 +13,7 @@ When modifying this repository, read these files first:
 1. [LLM_WORKFLOW.md](LLM_WORKFLOW.md)
 2. [docs/PUBLICATION_GUARD.md](docs/PUBLICATION_GUARD.md)
 3. [docs/SKILLS_INTEGRATION.md](docs/SKILLS_INTEGRATION.md)
+4. [docs/INSTANCE_REGISTRY.md](docs/INSTANCE_REGISTRY.md)
 
 ## Non-Negotiable Publication Rules
 
@@ -29,6 +30,7 @@ When modifying this repository, read these files first:
 - Keep [LLM_WORKFLOW.md](LLM_WORKFLOW.md) concise and operational.
 - Put detailed rationale in `docs/` only when it helps maintainers make decisions.
 - Put reusable formats in `templates/`.
+- Keep local path registry rules generic and public-safe; never include a real machine path.
 - Keep [README.md](README.md) as the human-facing entry point.
 - Update [docs/PUBLICATION_GUARD.md](docs/PUBLICATION_GUARD.md) when adding new public/private boundary rules.
 - Use UTF-8 without BOM for Markdown files.

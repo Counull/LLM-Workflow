@@ -1,4 +1,10 @@
-# Source Note
+# Source Digest
+
+Page Type: `digest`
+
+Lifecycle: `active`
+
+Default Read: only when listed in a topic index default read set
 
 Source ID: source-id
 
@@ -6,7 +12,9 @@ Date Added: YYYY-MM-DD
 
 Source Type: document | meeting | web | diff | code | other
 
-Original Location: private path or link retained in the private instance
+Original Source: private source reference retained in the private instance
+
+Source Lifecycle: `source-only`
 
 ## Summary
 

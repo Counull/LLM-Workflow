@@ -13,6 +13,7 @@ Use this as a private workspace layout. Do not commit private instances to the p
 07_retrospective/
 08_tools/
 09_meetings/
+10_communication/
 99_archive/
 AGENTS.md
 README.md
@@ -27,3 +28,5 @@ LLM_WORKFLOW.md      optional pointer only
 4. Mark uncertainty and source confidence explicitly.
 5. Do not publish instance-specific documents unless they are reviewed and fully sanitized.
 6. Keep machine-local absolute paths in `~/.llm-wiki/instances.json`, not in public workflow files or synced agent templates.
+7. Keep each topic index explicit about default read set, status source, source docs, archive docs, and superseded docs.
+8. Keep communication notes outside the default engineering read set.

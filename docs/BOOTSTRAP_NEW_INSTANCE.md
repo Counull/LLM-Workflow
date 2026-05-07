@@ -81,6 +81,7 @@ Recommended roles:
 07_retrospective/
 08_tools/
 09_meetings/
+10_communication/
 99_archive/
 AGENTS.md
 README.md
@@ -104,7 +105,9 @@ Keep `AGENTS.md` short. It is an entry point, not the full workflow manual.
 
 Use [templates/feature-index.md](../templates/feature-index.md) or a localized equivalent.
 
-The index should be the first place an agent reads when answering project-specific questions.
+The index should be the first place an agent reads when answering project-specific questions. It must declare the canonical status source, the default read set, source docs, archive docs, superseded docs, and communication docs. Keep the default read set to at most 3-4 pages.
+
+Create or reserve a status page for each active topic before spreading status facts across plans, digests, or logs.
 
 ## 7. Publication Check
 

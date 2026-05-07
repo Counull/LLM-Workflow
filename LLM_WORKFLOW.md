@@ -28,9 +28,25 @@ The goal is not to upload every file to an LLM and rediscover context on each qu
 | `07_retrospective` | Stable lessons and reusable knowledge. | Postmortems, lessons learned, playbooks. |
 | `08_tools` | Debug commands, scripts, tool manuals. | Debug guides, command references. |
 | `09_meetings` | Meeting audio references, transcripts, summaries. | `transcript.md`, `summary.md`. |
-| `99_archive` | Inactive or historical materials. | Archived notes and old drafts. |
+| `10_communication` | Communication drafts, meeting prep, stakeholder questions, and external-facing notes. | Confirmation scripts, review questions, outreach drafts. |
+| `99_archive` | Inactive or historical materials. | Archived notes, old drafts, superseded pages, changelogs. |
 
-### 3.1 Runtime Entry and Local Registry
+### 3.1 Document Layering and Read Policy
+
+Each feature or topic should be routed through one index page and a small default read set. The index tells a future agent which pages to read first and which pages are source-only, archived, superseded, or communication-only.
+
+Core rules:
+
+1. Every topic has an `index` page.
+2. Every topic has exactly one canonical `status` page for current mutable facts.
+3. Long original material belongs in `source` pages and is not default context.
+4. Long sources that affect daily work should have short `digest` pages.
+5. Current plans should include remaining, blocked, partial, and risky work, not complete history.
+6. Communication material should be separated from engineering context.
+
+See [docs/DOCUMENT_LAYERING_AND_READ_POLICY.md](docs/DOCUMENT_LAYERING_AND_READ_POLICY.md) for page types and read policy.
+
+### 3.2 Runtime Entry and Local Registry
 
 A workflow instance may be maintained through a runtime skill and a custom agent, but local machine paths must stay outside public workflow files.
 
@@ -55,11 +71,13 @@ Use when adding a new source: requirement document, meeting transcript, web arti
 Steps:
 
 1. Identify the source and record where it came from.
-2. Keep the raw source in an instance-specific location.
-3. Extract durable facts, decisions, open questions, and affected topics.
-4. Create or update the relevant knowledge-layer pages.
-5. Update the index.
-6. Record source date, scope, confidence, and follow-up actions.
+2. Keep the raw source in an instance-specific source-only location.
+3. If the source is long and relevant to daily work, create or update a short digest.
+4. Extract durable facts, decisions, open questions, and affected topics.
+5. Update the canonical status page when current mutable state changes.
+6. Create or update the relevant knowledge-layer pages without duplicating status snapshots.
+7. Update the topic index and its default read set.
+8. Record source date, scope, confidence, and follow-up actions.
 
 ### 4.2 Query
 
@@ -68,11 +86,12 @@ Use when answering a question against the knowledge layer.
 Steps:
 
 1. Read the index first.
-2. Open the most relevant pages.
-3. Read raw sources only when the answer depends on exact wording or current facts.
-4. Answer with clear source boundaries.
-5. If the answer produces reusable insight, file it back into the knowledge layer.
-6. Update the index if a new durable page was created.
+2. Read only the default read set unless the task requires deeper evidence.
+3. Read optional deep-dive docs only when the default set is insufficient.
+4. Read raw sources, archive, superseded, or communication pages only when the task explicitly needs exact wording, history, audit, contradiction resolution, or communication material.
+5. Answer with clear source boundaries.
+6. If the answer produces reusable insight, file it back into the correct page type.
+7. Update the index if a new durable page was created.
 
 ### 4.3 Lint
 
@@ -87,6 +106,15 @@ Check for:
 5. Important topics without dedicated pages.
 6. Private details accidentally added to reusable workflow files.
 7. Missing test, acceptance, or decision records.
+8. Current status duplicated across multiple pages.
+9. Source or archive pages included in the default read set.
+10. Active pages containing superseded wording.
+11. Completed tasks causing active plans or status tables to grow without bound.
+12. Changelog or communication material mixed into current engineering context.
+13. Prototype or mock notes without expiry, promotion, or removal conditions.
+14. Pages that all behave like main documents instead of having clear types.
+
+See [docs/WORKFLOW_LINT_CHECKLIST.md](docs/WORKFLOW_LINT_CHECKLIST.md) for the expanded checklist.
 
 ### 4.4 Meeting Audio and Transcripts
 
@@ -113,7 +141,8 @@ Rules:
 2. Do not rewrite a transcript into a decision record without marking uncertainty.
 3. In summaries, separate `Decisions`, `Discussion Tendencies`, `Action Items`, and `Open Questions`.
 4. If a meeting changes a feature, requirement, design, or test criterion, update the index and related pages.
-5. Do not upload sensitive audio or transcripts to uncontrolled external services.
+5. Do not put transcripts or full raw notes in the default read set. Use a digest or meeting summary for daily work.
+6. Do not upload sensitive audio or transcripts to uncontrolled external services.
 
 ## 5. Index Rules
 
@@ -122,12 +151,19 @@ Each indexed feature or topic should include:
 | Field | Requirement |
 |---|---|
 | Name | Stable feature or topic name. |
-| Source | Original source or closest source reference. |
-| Related Docs | Requirement, design, development log, recovery guide, test record, or meeting summary. |
+| Status Source | One canonical status page for current mutable facts. |
+| Default Read Set | At most 3-4 pages to read after the index. |
+| Optional Deep-Dive Docs | Requirement, design, development log, recovery guide, test record, or meeting summary used on demand. |
+| Source Docs | Raw sources or source-only pages. Not default context. |
+| Archive Docs | Historical or inactive pages. Not default context. |
+| Superseded Docs | Replaced pages or sections. Not default context. |
+| Communication Docs | Meeting prep, confirmation wording, or outward-facing drafts. Not default engineering context. |
 | Entry Points | Code, config, tool, system, or other concrete implementation anchors. |
 | Owner | Person or team responsible, if applicable. |
 | Status | Short state such as `analysis`, `design`, `development`, `testing`, `published`, `archived`. |
 | Updated | Last meaningful update date. |
+
+The index is a router. It should point to the status source instead of copying the current status table.
 
 ## 6. Source Confidence
 
@@ -151,9 +187,12 @@ Recommended fields:
 
 | Field | Purpose |
 |---|---|
+| Page Type | `index`, `status`, `plan`, `digest`, `source`, `decision`, `changelog`, `archive`, or `communication`. |
+| Lifecycle | `active`, `draft`, `source-only`, `superseded`, or `archived`. |
 | Date | When the page or decision was created. |
 | Scope | Version, project, feature, topic, or time range the page applies to. |
 | Source | Original document, meeting, diff, link, transcript, or other source reference. |
+| Status Source | Link to the canonical status page when this page is not the status source. |
 | Current Conclusion | The best current understanding. |
 | Decision Rationale | Why this path was chosen over alternatives. |
 | Risks | Known risks, edge cases, or blast radius. |
@@ -161,6 +200,8 @@ Recommended fields:
 | Follow-up | Validation, testing, implementation, or documentation actions. |
 
 Keep reusable workflow files concise. Put instance-specific details in the private instance pages.
+
+See [docs/PAGE_LIFECYCLE_AND_ARCHIVE.md](docs/PAGE_LIFECYCLE_AND_ARCHIVE.md) for lifecycle rules and [docs/CONTEXT_BUDGET_AND_COMPRESSION.md](docs/CONTEXT_BUDGET_AND_COMPRESSION.md) for size budgets.
 
 ## 8. Assets and Images
 
@@ -194,12 +235,16 @@ See [docs/PUBLICATION_GUARD.md](docs/PUBLICATION_GUARD.md) before publishing cha
 Agents maintaining an instance should:
 
 1. Read the index before reading scattered pages.
-2. Keep raw sources separate from synthesized pages.
-3. Write reusable conclusions into the appropriate knowledge-layer directory.
-4. Update the index after adding durable pages.
-5. Mark uncertainty explicitly.
-6. Add a follow-up item instead of guessing when source context is missing.
-7. Keep public workflow files free of private context.
+2. Follow the index default read set before opening optional pages.
+3. Treat the status page as the only current mutable status source.
+4. Keep raw sources separate from digests and synthesized pages.
+5. Avoid reading source, archive, superseded, or communication pages by default.
+6. Write reusable conclusions into the appropriate page type.
+7. Update the index after adding durable pages.
+8. Mark uncertainty explicitly.
+9. Add a follow-up item instead of guessing when source context is missing.
+10. Compress, archive, or link content when active pages exceed their context budget.
+11. Keep public workflow files free of private context.
 
 ## 11. Inspiration
 

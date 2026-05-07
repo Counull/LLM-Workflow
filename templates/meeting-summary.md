@@ -1,5 +1,9 @@
 # Meeting Summary
 
+Page Type: `digest`
+
+Lifecycle: `active`
+
 Date: YYYY-MM-DD
 
 Time: HHMM

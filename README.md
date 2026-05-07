@@ -26,6 +26,10 @@ The reusable part lives in this repository. Each company, project, or private wo
 | [docs/SKILLS_INTEGRATION.md](docs/SKILLS_INTEGRATION.md) | How this workflow should interact with a separate skills repository. |
 | [docs/INSTANCE_REGISTRY.md](docs/INSTANCE_REGISTRY.md) | Where local instance links live and how agents resolve them. |
 | [docs/BOOTSTRAP_NEW_INSTANCE.md](docs/BOOTSTRAP_NEW_INSTANCE.md) | Checklist for starting a new private workflow instance. |
+| [docs/DOCUMENT_LAYERING_AND_READ_POLICY.md](docs/DOCUMENT_LAYERING_AND_READ_POLICY.md) | Page types, canonical status source, source/digest split, and default read policy. |
+| [docs/PAGE_LIFECYCLE_AND_ARCHIVE.md](docs/PAGE_LIFECYCLE_AND_ARCHIVE.md) | Lifecycle labels, completed work compression, superseded content, and archive rules. |
+| [docs/CONTEXT_BUDGET_AND_COMPRESSION.md](docs/CONTEXT_BUDGET_AND_COMPRESSION.md) | Size budgets and compression moves for context-efficient pages. |
+| [docs/WORKFLOW_LINT_CHECKLIST.md](docs/WORKFLOW_LINT_CHECKLIST.md) | Checklist for duplicate status, stale wording, source leakage into default context, and page bloat. |
 | [templates/](templates/) | Public-safe templates for indexes, meetings, source notes, and workflow instances. |
 
 ## Recommended Instance Layout
@@ -43,6 +47,7 @@ Copy or adapt [templates/instance-layout.md](templates/instance-layout.md) into 
 07_retrospective/
 08_tools/
 09_meetings/
+10_communication/
 99_archive/
 ```
 

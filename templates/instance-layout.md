@@ -24,5 +24,5 @@ LLM_WORKFLOW.md      optional pointer only
 
 ## Local Pointers
 
-- Canonical workflow: <link-to-canonical-LLM_WORKFLOW.md>
+- Canonical workflow: `path-or-url-to-canonical-workflow`
 - Add project-specific constraints and routes only.

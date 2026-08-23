@@ -22,6 +22,15 @@ Keep host adapters in a host-supported location or a separate repository. Link t
 
 A registry is an independent optional adapter. A skill or custom agent must not require one when the target is already explicit.
 
+## Optional Retrieval Adapter
+
+A retrieval adapter may search project documents, history, or cached context without becoming a source of truth:
+
+1. Return an exact original path or stable source link with each result.
+2. Treat cache and model memory as locators, not authority; verify the original source before making a claim or taking action.
+3. Resolve conflicts against the canonical source declared by the private instance and surface the contradiction.
+4. A query never authorizes curation or write-back. User instructions plus project and host rules still control every write.
+
 ## Good Candidates
 
 - source ingest and digest creation

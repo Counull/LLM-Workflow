@@ -1,13 +1,13 @@
 # Project Entry
 
-Workflow: <link-to-canonical-LLM_WORKFLOW.md>
+Workflow: `path-or-url-to-canonical-workflow`
 
-Status Source: [STATUS.md](STATUS.md)
+Status Source: `project-status-link`
 
 ## Project Routes
 
-- Add a current plan or digest only when one exists.
+- `current-plan-or-digest-link`
 
 ## Stable Project Constraints
 
-- Add project-specific constraints only.
+- `project-specific-constraint`

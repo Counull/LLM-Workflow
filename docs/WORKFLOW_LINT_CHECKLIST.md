@@ -70,6 +70,13 @@ Run the deeper sections only when a baseline check fails or the topic is still c
 - Private instance facts, paths, project names, source details, meeting content, code paths, issue IDs, and commit IDs stay out of public repositories.
 - If content only makes sense in one private instance, it is not reusable workflow content.
 
+## Optional Retrieval Adapter
+
+- Each result includes an original source path or stable link.
+- Cached context and model memory are treated as locators, not authority.
+- Conflicts are checked against the instance's canonical source and reported explicitly.
+- Query access does not imply permission to curate or write back.
+
 ## Suggested Lint Output
 
 For each finding, report:

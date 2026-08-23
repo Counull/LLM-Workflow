@@ -4,7 +4,7 @@ Page Type: `digest`
 
 Lifecycle: `active`
 
-Route: <link-to-project-entry-or-topic-index>
+Route: `project-entry-or-topic-index-link`
 
 Source ID: source-id
 
@@ -12,9 +12,9 @@ Date Added: YYYY-MM-DD
 
 Source Type: document | meeting | web | diff | code | other
 
-Original Source: private source reference retained in the private instance
+Original Source: `private-source-path-or-link`
 
-Source Lifecycle: `source-only`
+Original Source Read Policy: `source-only`
 
 ## Summary
 

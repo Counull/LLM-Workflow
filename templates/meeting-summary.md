@@ -10,7 +10,7 @@ Time: HHMM
 
 Topic: MeetingTopic
 
-Source: [transcript](transcript.md)
+Source: `transcript-path-or-link`
 
 ## Decisions
 

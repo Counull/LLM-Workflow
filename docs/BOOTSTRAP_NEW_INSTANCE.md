@@ -7,9 +7,18 @@ Use this checklist to start a private project, client, research, or personal ins
 1. Create one private entry page from [project-entry.md](../templates/project-entry.md).
 2. Create one private status page from [status.md](../templates/status.md).
 3. Set the status link, canonical workflow link, project routes, and project-specific constraints.
-4. Follow the [Fast Path](../LLM_WORKFLOW.md#11-fast-path).
+4. Follow the [Fast Path](../LLM_WORKFLOW.md#fast-path).
 
 No registry, skill, custom agent, fixed directory tree, or copied protocol file is required.
+
+## Thirty-Second Smoke Test
+
+Open a fresh conversation in the private instance. The setup passes when the agent:
+
+- finds the entry and canonical status without scanning the workspace;
+- states `Now`, `Next`, and `Blocked` with the status path as evidence;
+- does not preload raw sources or history without an evidence need; and
+- identifies where a hypothetical durable update belongs but does not edit without authorization.
 
 ## Keep the Roles Separate
 

@@ -10,11 +10,13 @@ This repository owns portable rules and templates. Each private instance owns it
 
 1. Read the private project's entry or index.
 2. Read its one canonical current `status` page.
-3. Read at most one relevant active plan, digest, or decision.
+3. Read at most one directly relevant plan, digest, decision, or testing record.
 4. Read history or raw sources only for missing evidence, exact wording, or contradiction resolution.
 5. Write back only a material navigation or current-state change, durable decision, real validation result, or blocker.
 
 The write-back rule defines what is worth recording, not permission to edit. User instructions plus project and host rules still control every write.
+
+Context compaction, chat rollover, or handoff does not justify a new document by itself. Re-enter through the Fast Path, continue the same active work, and update an existing canonical owner only when durable project state changed.
 
 ## Core Invariants
 

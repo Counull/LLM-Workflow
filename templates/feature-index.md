@@ -10,10 +10,22 @@ Scope: FeatureName
 
 Owner: OwnerName
 
-## Routes
+## Default Read Set
 
 - `current-plan-or-digest-link`
 
-## On Demand
+## Optional Deep-Dive Docs
 
-- `existing-design-test-source-history-or-communication-link`
+- `existing-design-testing-research-or-implementation-link`
+
+## Source Docs
+
+- `source-link`
+
+## Archive Docs
+
+- `archive-link`
+
+## Communication Docs
+
+- `communication-link`

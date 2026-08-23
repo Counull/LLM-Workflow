@@ -18,6 +18,7 @@ After reading the entry, an agent should read status and at most one relevant de
 | `digest` | Short working summary of a long source. | Only when selected as the task's one relevant page. | Read this before the source. |
 | `source` | Raw input or exact original material. | No. | Source-only; read only for exact wording or audit. |
 | `decision` | Stable design or process decision. | Optional. | Should not duplicate active status tables. |
+| `testing` | Real test, build, runtime, or acceptance evidence for one scope. | Only when the task needs that evidence. | Proves what was checked for that recorded scope and point in time; does not own current project status. |
 | `changelog` | Chronological history. | No. | Used for audit and handoff history. |
 | `archive` | Inactive, old, or replaced content. | No. | Must not shape current action unless explicitly requested. |
 | `communication` | Meeting prep, confirmation wording, stakeholder notes, or external-facing drafts. | No. | Read only for communication tasks. |
@@ -34,7 +35,7 @@ Examples of mutable facts:
 - recommended next action
 - current risks and validation state
 
-Other pages may link to the status page, but they should not copy full status snapshots. If a plan, digest, or decision needs status context, use a short pointer such as `Current state: see <status-link>`.
+Other pages may link to the status page, but they should not copy full status snapshots. If a plan, digest, decision, or testing record needs status context, use a short pointer such as `Current state: see <status-link>`.
 
 ## Default Read Set
 

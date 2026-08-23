@@ -30,6 +30,7 @@ A retrieval adapter may search project documents, history, or cached context wit
 2. Treat cache and model memory as locators, not authority; verify the original source before making a claim or taking action.
 3. Resolve conflicts against the canonical source declared by the private instance and surface the contradiction.
 4. A query never authorizes curation or write-back. User instructions plus project and host rules still control every write.
+5. If retrieval is unavailable or returns no verifiable source, fall back to the Fast Path and report the limitation; optional retrieval must not block project work.
 
 ## Good Candidates
 

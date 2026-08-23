@@ -13,6 +13,7 @@ These are review thresholds, not writing targets. Start shorter; when a page exc
 | `plan` | Up to 150 lines | Incomplete, blocked, partial, and risky work. |
 | `digest` | 50-100 lines | Durable facts and working implications from a source. |
 | `decision` | 80-150 lines | Accepted decision, rationale, trade-offs, and consequences. |
+| `testing` | 50-150 lines | Real validation for one scope; preserve evidence without copying current status. |
 | `changelog` | Unbounded but on-demand | Chronological audit trail. |
 | `source` | Unbounded but source-only | Exact original material, not default context. |
 | `archive` | Unbounded but on-demand | Historical or inactive material. |
@@ -24,7 +25,7 @@ For a normal topic task, the expected read path is:
 
 1. project entry
 2. project status
-3. at most one relevant plan, digest, or decision
+3. at most one relevant plan, digest, decision, or testing record
 4. deeper docs only for missing evidence, traceability, contradiction resolution, or history
 
 If a task cannot be started without scanning many pages, the topic index or page layering needs maintenance.

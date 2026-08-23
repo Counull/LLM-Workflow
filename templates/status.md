@@ -6,8 +6,8 @@ Scope: project
 
 ## Now
 
-- Current work: TBD
-- Evidence: None yet.
+- Active work: TBD
+- Last verified checkpoint: None yet.
 
 ## Next
 

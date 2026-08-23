@@ -23,7 +23,7 @@ Run the deeper sections only when a baseline check fails or the topic is still c
 ## Single Status Source
 
 - Current mutable status exists in one canonical status page.
-- Plans, digests, decisions, and logs link to status instead of copying full status tables.
+- Plans, digests, decisions, testing records, and logs link to status instead of copying full status tables.
 - Current blockers, missing inputs, recommended next action, and risk state are not duplicated across pages.
 - A small status change should not require editing many pages.
 
@@ -76,6 +76,7 @@ Run the deeper sections only when a baseline check fails or the topic is still c
 - Cached context and model memory are treated as locators, not authority.
 - Conflicts are checked against the instance's canonical source and reported explicitly.
 - Query access does not imply permission to curate or write back.
+- Retrieval failure or missing verifiable sources falls back to the Fast Path instead of blocking work.
 
 ## Suggested Lint Output
 

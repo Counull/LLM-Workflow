@@ -24,6 +24,7 @@ Keep active pages focused:
 - `plan`: remaining work, blocked work, partial work, and risky work
 - `digest`: concise summary of a source that is still relevant
 - `decision`: stable rationale and accepted trade-offs
+- `testing`: real validation evidence and its exact limits, without a current-status copy
 
 Do not keep long chronological append logs in active pages.
 

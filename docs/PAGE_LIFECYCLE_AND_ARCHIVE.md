@@ -6,13 +6,13 @@ Use lifecycle labels to prevent old facts from competing with current decisions.
 
 | Label | Meaning | Default Read? |
 |---|---|---|
-| `active` | Current working page for a topic. | Yes, only if listed in the default read set. |
+| `active` | Current working page for a topic. | Always for the canonical status; otherwise only when routed from the entry or topic index. |
 | `draft` | Incomplete or unreviewed page. | Optional; read only when the task needs it. |
 | `source-only` | Raw or exact source material. | No. |
 | `superseded` | Replaced by a newer source, decision, or status. | No. |
 | `archived` | Historical, inactive, or no longer part of current work. | No. |
 
-Every maintained page should make its lifecycle clear in metadata or near the title.
+Make lifecycle explicit when a page is draft, source-only, superseded, archived, or otherwise ambiguous. Do not add metadata when the page's role is already clear.
 
 ## Active Page Rules
 
@@ -40,7 +40,7 @@ Recommended handling:
 
 ## Changelog and Archive
 
-Use `changelog` for chronological history and `archive` for inactive content. These pages may be long, but they must be categorized as on-demand pages in the topic index.
+Use `changelog` for chronological history and `archive` for inactive content. These pages may be long; when an entry or topic index links them, categorize them as on-demand.
 
 Current pages should keep only the most recent meaningful change summary, with a link to the changelog for older entries.
 

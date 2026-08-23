@@ -6,6 +6,20 @@ This workflow turns raw sources and conversations into a persistent Markdown kno
 
 The goal is not to upload every file to an LLM and rediscover context on each question. The goal is to maintain reusable, indexed, source-aware documents that compound over time.
 
+## 1.1 Fast Path
+
+The default path is deliberately short:
+
+1. Read the private project's entry or index page.
+2. Read its one canonical current `status` page.
+3. Read at most one relevant active plan, digest, or decision.
+4. Read history or sources only when exact evidence is necessary.
+5. Write back only a material navigation or current-state change, durable decision, real validation result, or blocker.
+
+The protocol owns portable reading, status, and write-back rules. A private instance owns only private facts and project constraints. When an instance duplicates a portable rule, remove it or replace it with a pointer to this protocol; generic rules in this protocol take precedence over duplicated instance wording. This does not override a genuinely project-specific constraint.
+
+Skills, custom agents, registries, fixed folder trees, metadata, and automation are optional adapters. They are never prerequisites for using this protocol.
+
 ## 2. Layers
 
 | Layer | Description | Mutability |
@@ -14,7 +28,9 @@ The goal is not to upload every file to an LLM and rediscover context on each qu
 | Knowledge layer | Requirements analysis, design notes, implementation logs, meeting summaries, test records, retrospectives, and indexes. | Maintained by human + LLM. |
 | Rules and navigation | Agent instructions, workflow rules, templates, indexes, and publication guards. | Maintained carefully. |
 
-## 3. Recommended Instance Directories
+## 3. Optional Expanded Instance Directories
+
+Use this expanded layout only after the minimal entry/status path no longer makes retrieval easy.
 
 | Directory | Purpose | Typical Files |
 |---|---|---|
@@ -31,14 +47,14 @@ The goal is not to upload every file to an LLM and rediscover context on each qu
 | `10_communication` | Communication drafts, meeting prep, stakeholder questions, and external-facing notes. | Confirmation scripts, review questions, outreach drafts. |
 | `99_archive` | Inactive or historical materials. | Archived notes, old drafts, superseded pages, changelogs. |
 
-### 3.1 Document Layering and Read Policy
+### 3.1 Optional Document Layering and Read Policy
 
-Each feature or topic should be routed through one index page and a small default read set. The index tells a future agent which pages to read first and which pages are source-only, archived, superseded, or communication-only.
+Create a separate topic index only when that topic needs its own route. The index tells a future agent which pages are current and which are source-only, archived, superseded, or communication-only.
 
 Core rules:
 
-1. Every topic has an `index` page.
-2. Every topic has exactly one canonical `status` page for current mutable facts.
+1. A project starts with one entry and one project `status` page.
+2. Add a scoped topic index/status only when that topic needs an independent route; each mutable fact has exactly one owner.
 3. Long original material belongs in `source` pages and is not default context.
 4. Long sources that affect daily work should have short `digest` pages.
 5. Current plans should include remaining, blocked, partial, and risky work, not complete history.
@@ -46,21 +62,11 @@ Core rules:
 
 See [docs/DOCUMENT_LAYERING_AND_READ_POLICY.md](docs/DOCUMENT_LAYERING_AND_READ_POLICY.md) for page types and read policy.
 
-### 3.2 Runtime Entry and Local Registry
+### 3.2 Optional Host Adapters
 
-A workflow instance may be maintained through a runtime skill and a custom agent, but local machine paths must stay outside public workflow files.
+Skills, custom agents, registries, and automation are host-specific conveniences, not part of the core protocol. Add them only when the host or number of instances requires them, and keep private paths or mappings local.
 
-Recommended split:
-
-| Item | Recommended Place | Notes |
-|---|---|---|
-| Runtime skills | User-configured skills location, sourced from the skills repository. | Do not vendor skills into this workflow repository. |
-| Custom agent template | Skills repository. | Bootstrap can install it into the VS Code user or workspace agents directory. |
-| Installed custom agent | VS Code user `agents/` or workspace `.github/agents/`. | Keep it generic; do not hardcode a private instance path. |
-| Local instance link | `~/.llm-wiki/instances.json`. | Machine-local registry that maps instance IDs to paths. |
-| Human entry point | Private instance `README.md`. | Describe the instance without relying on an absolute local path. |
-
-See [docs/INSTANCE_REGISTRY.md](docs/INSTANCE_REGISTRY.md) for the registry format.
+See [docs/SKILLS_INTEGRATION.md](docs/SKILLS_INTEGRATION.md) and [docs/INSTANCE_REGISTRY.md](docs/INSTANCE_REGISTRY.md) only when such an adapter is needed.
 
 ## 4. Standard Operations
 
@@ -70,14 +76,10 @@ Use when adding a new source: requirement document, meeting transcript, web arti
 
 Steps:
 
-1. Identify the source and record where it came from.
-2. Keep the raw source in an instance-specific source-only location.
-3. If the source is long and relevant to daily work, create or update a short digest.
-4. Extract durable facts, decisions, open questions, and affected topics.
-5. Update the canonical status page when current mutable state changes.
-6. Create or update the relevant knowledge-layer pages without duplicating status snapshots.
-7. Update the topic index and its default read set.
-8. Record source date, scope, confidence, and follow-up actions.
+1. Keep the raw source in the private instance and record where it came from.
+2. Extract durable facts, decisions, open questions, and affected topics.
+3. Create a digest only if the long source will affect routine work.
+4. Update status or the entry route only when current facts or navigation changed.
 
 ### 4.2 Query
 
@@ -85,13 +87,10 @@ Use when answering a question against the knowledge layer.
 
 Steps:
 
-1. Read the index first.
-2. Read only the default read set unless the task requires deeper evidence.
-3. Read optional deep-dive docs only when the default set is insufficient.
-4. Read raw sources, archive, superseded, or communication pages only when the task explicitly needs exact wording, history, audit, contradiction resolution, or communication material.
-5. Answer with clear source boundaries.
-6. If the answer produces reusable insight, file it back into the correct page type.
-7. Update the index if a new durable page was created.
+1. Read entry, status, and at most one task-relevant page.
+2. Read deeper only for missing evidence, exact wording, history, or contradiction resolution.
+3. Answer with clear source boundaries.
+4. Apply the Fast Path write-back rule.
 
 ### 4.3 Lint
 
@@ -99,75 +98,41 @@ Use periodically or before handoff.
 
 Check for:
 
-1. Broken links.
-2. Stale claims superseded by newer sources.
-3. Contradictions between pages.
-4. Orphan pages with no index entry or backlinks.
-5. Important topics without dedicated pages.
-6. Private details accidentally added to reusable workflow files.
-7. Missing test, acceptance, or decision records.
-8. Current status duplicated across multiple pages.
-9. Source or archive pages included in the default read set.
-10. Active pages containing superseded wording.
-11. Completed tasks causing active plans or status tables to grow without bound.
-12. Changelog or communication material mixed into current engineering context.
-13. Prototype or mock notes without expiry, promotion, or removal conditions.
-14. Pages that all behave like main documents instead of having clear types.
+1. Broken links, duplicated status, or contradictory current claims.
+2. History, sources, or communication leaking into default context.
+3. Private facts leaking into this reusable repository.
+4. Active pages that have become too long to route quickly.
 
 See [docs/WORKFLOW_LINT_CHECKLIST.md](docs/WORKFLOW_LINT_CHECKLIST.md) for the expanded checklist.
 
-### 4.4 Meeting Audio and Transcripts
+### 4.4 Meetings (Optional)
 
-Recommended split:
-
-| Stage | Recommended Place | Notes |
-|---|---|---|
-| Recording | Mobile device, tablet, or meeting tool. | Prioritize complete audio and accurate meeting time. |
-| Rough transcription | Device or later processing. | Device transcription is fine if quality is acceptable. |
-| Trusted summary | Workflow instance. | Extract decisions, action items, risks, changed requirements, and open questions. |
-
-Recommended meeting folder:
-
-```text
-09_meetings/YYYY-MM-DD_HHMM_topic/
-  audio/              optional audio files or links
-  transcript.md       raw transcript, with uncertainty markers preserved
-  summary.md          decisions, action items, risks, related topics
-```
-
-Rules:
-
-1. Treat audio and transcripts as raw sources.
-2. Do not rewrite a transcript into a decision record without marking uncertainty.
-3. In summaries, separate `Decisions`, `Discussion Tendencies`, `Action Items`, and `Open Questions`.
-4. If a meeting changes a feature, requirement, design, or test criterion, update the index and related pages.
-5. Do not put transcripts or full raw notes in the default read set. Use a digest or meeting summary for daily work.
-6. Do not upload sensitive audio or transcripts to uncontrolled external services.
+Keep recordings and transcripts as private raw sources. Create a short summary only when decisions, actions, risks, or requirements affect current work; preserve uncertainty and link back to the source. Do not preload raw transcripts or publish sensitive media.
 
 ## 5. Index Rules
 
-Each indexed feature or topic should include:
+Use this fuller index only after a topic needs several documents. The required part is a status source and a small default read set; all other fields are optional.
 
 | Field | Requirement |
 |---|---|
-| Name | Stable feature or topic name. |
+| Name | Optional stable feature or topic name. |
 | Status Source | One canonical status page for current mutable facts. |
-| Default Read Set | At most 3-4 pages to read after the index. |
-| Optional Deep-Dive Docs | Requirement, design, development log, recovery guide, test record, or meeting summary used on demand. |
-| Source Docs | Raw sources or source-only pages. Not default context. |
-| Archive Docs | Historical or inactive pages. Not default context. |
-| Superseded Docs | Replaced pages or sections. Not default context. |
-| Communication Docs | Meeting prep, confirmation wording, or outward-facing drafts. Not default engineering context. |
-| Entry Points | Code, config, tool, system, or other concrete implementation anchors. |
-| Owner | Person or team responsible, if applicable. |
-| Status | Short state such as `analysis`, `design`, `development`, `testing`, `published`, `archived`. |
-| Updated | Last meaningful update date. |
+| Default Read Set | List at most 3-4 route links; the Fast Path opens status plus one relevant page. |
+| Optional Deep-Dive Docs | Add only after a design, test, source, history, or communication record exists. |
+| Source Docs | Add only when raw sources exist; never default context. |
+| Archive Docs | Add only when historical or inactive material exists. |
+| Superseded Docs | Add only when a page or section was replaced. |
+| Communication Docs | Add only for communication material; never default engineering context. |
+| Entry Points | Optional concrete implementation anchors. |
+| Owner | Optional person or team responsible. |
+| Status | Optional short label such as `analysis`, `design`, `development`, `testing`, `published`, `archived`. |
+| Updated | Optional last meaningful update date. |
 
 The index is a router. It should point to the status source instead of copying the current status table.
 
 ## 6. Source Confidence
 
-Use explicit confidence labels:
+Use confidence labels when a claim is inferred, stale, disputed, or high-impact:
 
 | Label | Meaning |
 |---|---|
@@ -181,23 +146,7 @@ Do not present inferred or superseded claims as current facts.
 
 ## 7. Document Page Rules
 
-Important knowledge-layer pages should include enough metadata for a future reader or agent to evaluate the claim without replaying the whole conversation.
-
-Recommended fields:
-
-| Field | Purpose |
-|---|---|
-| Page Type | `index`, `status`, `plan`, `digest`, `source`, `decision`, `changelog`, `archive`, or `communication`. |
-| Lifecycle | `active`, `draft`, `source-only`, `superseded`, or `archived`. |
-| Date | When the page or decision was created. |
-| Scope | Version, project, feature, topic, or time range the page applies to. |
-| Source | Original document, meeting, diff, link, transcript, or other source reference. |
-| Status Source | Link to the canonical status page when this page is not the status source. |
-| Current Conclusion | The best current understanding. |
-| Decision Rationale | Why this path was chosen over alternatives. |
-| Risks | Known risks, edge cases, or blast radius. |
-| Open Questions | Items that still require confirmation. |
-| Follow-up | Validation, testing, implementation, or documentation actions. |
+Add metadata only when it helps a future reader evaluate the page. Common fields are page type, lifecycle, date, scope, source, and status source. A decision should state its conclusion and rationale; active work should state only relevant risks, open questions, and follow-up. Do not add empty fields for compliance.
 
 Keep reusable workflow files concise. Put instance-specific details in the private instance pages.
 
@@ -205,16 +154,7 @@ See [docs/PAGE_LIFECYCLE_AND_ARCHIVE.md](docs/PAGE_LIFECYCLE_AND_ARCHIVE.md) for
 
 ## 8. Assets and Images
 
-Image handling is instance-specific, but these rules are portable:
-
-| Case | Recommendation |
-|---|---|
-| Small image tightly bound to one private note | A base64 data URI can be acceptable if the instance owner values single-file portability. |
-| Long-lived or reviewed documentation | Prefer an `assets/` folder and relative links. |
-| Public reusable workflow files | Avoid embedding private screenshots or binary assets. Use abstract diagrams or placeholders. |
-| External wiki tools | Test compatibility before relying on base64 or embedded HTML. |
-
-If base64 is used in a private instance, keep images small and accept that diffs will be hard to review.
+Keep private assets in the private instance. Prefer an `assets/` folder and relative links for maintained documents; use base64 only for a small, private, self-contained note. Do not publish private screenshots or binaries, and verify host compatibility before relying on embedded formats.
 
 ## 9. Public vs Private Boundary
 
@@ -234,17 +174,11 @@ See [docs/PUBLICATION_GUARD.md](docs/PUBLICATION_GUARD.md) before publishing cha
 
 Agents maintaining an instance should:
 
-1. Read the index before reading scattered pages.
-2. Follow the index default read set before opening optional pages.
-3. Treat the status page as the only current mutable status source.
-4. Keep raw sources separate from digests and synthesized pages.
-5. Avoid reading source, archive, superseded, or communication pages by default.
-6. Write reusable conclusions into the appropriate page type.
-7. Update the index after adding durable pages.
-8. Mark uncertainty explicitly.
-9. Add a follow-up item instead of guessing when source context is missing.
-10. Compress, archive, or link content when active pages exceed their context budget.
-11. Keep public workflow files free of private context.
+1. Start from entry and status, not a directory scan.
+2. Read one more page only when the task needs it.
+3. Mark uncertainty instead of guessing.
+4. Apply the Fast Path write-back rule.
+5. Keep portable rules here and private facts in the instance.
 
 ## 11. Inspiration
 

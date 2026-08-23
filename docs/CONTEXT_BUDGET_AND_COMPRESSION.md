@@ -4,12 +4,12 @@ LLM Wiki pages should optimize for the next agent's first useful read. Completen
 
 ## Size Budget
 
-Recommended budgets are guidelines, not hard limits. If a page exceeds the budget, compress, split, or archive before adding more detail.
+These are review thresholds, not writing targets. Start shorter; when a page exceeds a threshold, compress, split, or archive before adding more detail.
 
 | Page Type | Suggested Size | Compression Target |
 |---|---:|---|
-| `index` | 50-120 lines | Route readers; do not summarize every page. |
-| `status` | 80-120 lines | Current mutable truth only. |
+| `entry` or `index` | Review above 40 lines | Route readers; do not summarize every page. |
+| `status` | Review above 40 lines | Current mutable truth only. |
 | `plan` | Up to 150 lines | Incomplete, blocked, partial, and risky work. |
 | `digest` | 50-100 lines | Durable facts and working implications from a source. |
 | `decision` | 80-150 lines | Accepted decision, rationale, trade-offs, and consequences. |
@@ -22,10 +22,10 @@ Recommended budgets are guidelines, not hard limits. If a page exceeds the budge
 
 For a normal topic task, the expected read path is:
 
-1. topic index
-2. default read set, at most 3-4 pages
-3. optional deep-dive docs only when needed
-4. source or archive only for traceability, contradiction resolution, or history work
+1. project entry
+2. project status
+3. at most one relevant plan, digest, or decision
+4. deeper docs only for missing evidence, traceability, contradiction resolution, or history
 
 If a task cannot be started without scanning many pages, the topic index or page layering needs maintenance.
 
@@ -57,8 +57,8 @@ Prefer short current conclusions over replaying the whole analysis. Put deep rat
 
 Run a compression pass when:
 
-- a default read set grows beyond four pages
-- a status page exceeds roughly 120 lines
+- a normal task needs more than status plus one relevant page
+- an entry or status page exceeds roughly 40 lines
 - an active plan exceeds roughly 150 lines
 - a digest exceeds roughly 100 lines
 - source or archive pages are being read for routine tasks

@@ -47,8 +47,14 @@ Use placeholders instead of real private names:
 
 ## Where Private Content Belongs
 
-Private content belongs in a separate workflow instance, not this repository. A private instance can copy this workflow and add project-specific sources, indexes, summaries, and decisions.
+Private content belongs in a separate workflow instance, not this repository. A private instance should link to this workflow and keep only its project-specific sources, indexes, summaries, and decisions.
 
 ## Agent Rule
 
 If an AI agent is unsure whether content is public-safe, it must keep the content out of this repository and ask for review or place it in a private instance.
+
+## Protocol Ownership
+
+- Portable workflow rules have one home: this repository.
+- Private instances may point to those rules but must not maintain competing copies.
+- If a private instance duplicates a portable rule, remove it or replace it with a pointer; retain only project-specific constraints there.

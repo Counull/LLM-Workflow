@@ -2,14 +2,23 @@
 
 Use this checklist periodically, before handoff, or whenever a topic feels expensive for an agent to read.
 
+## Baseline Checks
+
+- A normal task can start from one entry/index, one status page, and at most one additional relevant page.
+- History, raw sources, and communication are not part of that default read.
+- A private instance keeps private facts only and points to this protocol for generic rules.
+- This public repository contains no private project facts or paths.
+
+Run the deeper sections only when a baseline check fails or the topic is still costly to navigate.
+
 ## Read Policy
 
-- Every active feature or topic has an `index` page.
-- The index declares one `Status Source`.
-- The index declares a `Default Read Set` with at most 3-4 pages.
+- Every private instance has one routing entry; a feature or topic gets its own `index` only when it needs an independent route.
+- Each entry or topic index declares one `Status Source`.
+- The entry lists at most 3-4 route links; a normal task opens status plus one relevant page.
 - Source, archive, superseded, and communication pages are not in the default read set.
 - Optional deep-dive docs are categorized separately from default docs.
-- A new agent can answer "what should I read first?" from the index alone.
+- A new agent can answer "what should I read first?" from the entry or topic index alone.
 
 ## Single Status Source
 
@@ -49,7 +58,7 @@ Use this checklist periodically, before handoff, or whenever a topic feels expen
 
 ## Context Budget
 
-- `status` pages are roughly 80-120 lines.
+- Entry and `status` pages should be reviewed once they exceed roughly 40 lines.
 - Active plans are roughly 150 lines or less.
 - Digests are roughly 50-100 lines.
 - Index pages route rather than restating every document.

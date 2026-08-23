@@ -8,14 +8,12 @@ It is public-facing and must remain independent from any single company, client,
 
 ## Read First
 
-When modifying this repository, read these files first:
+Always read these files first:
 
 1. [LLM_WORKFLOW.md](LLM_WORKFLOW.md)
 2. [docs/PUBLICATION_GUARD.md](docs/PUBLICATION_GUARD.md)
-3. [docs/SKILLS_INTEGRATION.md](docs/SKILLS_INTEGRATION.md)
-4. [docs/INSTANCE_REGISTRY.md](docs/INSTANCE_REGISTRY.md)
-5. [docs/DOCUMENT_LAYERING_AND_READ_POLICY.md](docs/DOCUMENT_LAYERING_AND_READ_POLICY.md)
-6. [docs/WORKFLOW_LINT_CHECKLIST.md](docs/WORKFLOW_LINT_CHECKLIST.md)
+
+Read the relevant optional page only when changing skills, the registry, document layering, or lint behavior.
 
 ## Non-Negotiable Publication Rules
 

@@ -16,6 +16,14 @@ The workflow separates knowledge work into three layers:
 
 The reusable part lives in this repository. Each company, project, or private workspace should keep its own instance outside this public repo.
 
+## Fast Start
+
+Start with one private entry page and one current status page, then follow the [Fast Path](LLM_WORKFLOW.md#11-fast-path). A normal task reads `entry → status → at most one relevant page`, then stops.
+
+No registry, skill installation, custom agent, fixed directory tree, or copied protocol file is required. Those are optional integrations for a later need.
+
+Reusable rules live here; private instances keep only private facts and constraints. If an instance repeats a reusable rule, delete the duplicate or replace it with a pointer to this repository.
+
 ## Repository Contents
 
 | Path | Purpose |
@@ -23,18 +31,19 @@ The reusable part lives in this repository. Each company, project, or private wo
 | [LLM_WORKFLOW.md](LLM_WORKFLOW.md) | Portable workflow protocol. |
 | [AGENTS.md](AGENTS.md) | Agent-facing rules for maintaining this repository. |
 | [docs/PUBLICATION_GUARD.md](docs/PUBLICATION_GUARD.md) | Rules that prevent reusable workflow files from being polluted by private context. |
-| [docs/SKILLS_INTEGRATION.md](docs/SKILLS_INTEGRATION.md) | How this workflow should interact with a separate skills repository. |
-| [docs/INSTANCE_REGISTRY.md](docs/INSTANCE_REGISTRY.md) | Where local instance links live and how agents resolve them. |
+| [docs/SKILLS_INTEGRATION.md](docs/SKILLS_INTEGRATION.md) | Optional integration with a separate skills repository. |
+| [docs/INSTANCE_REGISTRY.md](docs/INSTANCE_REGISTRY.md) | Optional local registry for tools that select among many instances. |
 | [docs/BOOTSTRAP_NEW_INSTANCE.md](docs/BOOTSTRAP_NEW_INSTANCE.md) | Checklist for starting a new private workflow instance. |
 | [docs/DOCUMENT_LAYERING_AND_READ_POLICY.md](docs/DOCUMENT_LAYERING_AND_READ_POLICY.md) | Page types, canonical status source, source/digest split, and default read policy. |
 | [docs/PAGE_LIFECYCLE_AND_ARCHIVE.md](docs/PAGE_LIFECYCLE_AND_ARCHIVE.md) | Lifecycle labels, completed work compression, superseded content, and archive rules. |
 | [docs/CONTEXT_BUDGET_AND_COMPRESSION.md](docs/CONTEXT_BUDGET_AND_COMPRESSION.md) | Size budgets and compression moves for context-efficient pages. |
 | [docs/WORKFLOW_LINT_CHECKLIST.md](docs/WORKFLOW_LINT_CHECKLIST.md) | Checklist for duplicate status, stale wording, source leakage into default context, and page bloat. |
+| [docs/GPT_FIRST_PROFILE.md](docs/GPT_FIRST_PROFILE.md) | Short-context profile and optional ChatGPT Project adapter. |
 | [templates/](templates/) | Public-safe templates for indexes, meetings, source notes, and workflow instances. |
 
-## Recommended Instance Layout
+## Optional Expanded Instance Layout
 
-Copy or adapt [templates/instance-layout.md](templates/instance-layout.md) into a private workspace:
+The two-page start above is the default. Copy or adapt [templates/instance-layout.md](templates/instance-layout.md) only when a private workspace needs more structure:
 
 ```text
 00_inbox/
@@ -52,6 +61,8 @@ Copy or adapt [templates/instance-layout.md](templates/instance-layout.md) into 
 ```
 
 The exact names can be localized. Keep the roles stable.
+
+For a GPT-focused short-context profile and optional ChatGPT Project instructions, see [docs/GPT_FIRST_PROFILE.md](docs/GPT_FIRST_PROFILE.md).
 
 ## GitHub Safety Rule
 
@@ -71,4 +82,3 @@ This workflow is inspired by Andrej Karpathy's LLM Wiki pattern:
 
 - Gist page: [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 - Raw Markdown: [llm-wiki.md](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f/raw/ac46de1ad27f92b28ac95459c782c07f6b8c964a/llm-wiki.md)
-

@@ -4,7 +4,7 @@ Page Type: `digest`
 
 Lifecycle: `active`
 
-Default Read: only when listed in a topic index default read set
+Route: <link-to-project-entry-or-topic-index>
 
 Source ID: source-id
 

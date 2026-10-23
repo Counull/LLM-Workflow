@@ -27,6 +27,15 @@ Context compaction, chat rollover, or handoff does not justify a new document by
 - Portable rules here take precedence over duplicated generic wording in an instance, but never override a genuine project-specific constraint.
 - Skills, retrieval tools, registries, fixed directory trees, metadata, and automation are optional adapters, never prerequisites.
 
+## Document File Names
+
+- New authored knowledge pages must start with a monotonically increasing numeric prefix: `001-topic.md`, `002-topic.md`.
+- Allocate numbers within the destination directory, not across the entire instance. Before creating a page, inspect existing numbered files and use the highest allocated number plus one; start at `001` when none exist. Dates and directory-order prefixes are not document numbers.
+- Use at least three digits, zero-padded; expand the width when necessary. Never fill gaps or reuse a number from a deleted, moved, or archived page. Include previously allocated numbers visible in available version history when determining the next number.
+- Serialize allocation when multiple writers share a directory and check for number collisions before saving. When moving a page into another directory, allocate a new destination number if its existing number conflicts or falls below that directory's next number, and repair affected links.
+- Keep fixed entry points and tool-required names unchanged, such as `README.md`, `AGENTS.md`, `entry.md`, `status.md`, `LLM_WORKFLOW.md`, and `SKILL.md`. Preserve original filenames for raw source attachments; this rule applies to authored knowledge pages.
+- Do not bulk-rename existing documents to adopt this rule. Editing a page keeps its filename and number; a new page receives the next number. Update its index or route links when needed.
+
 ## Standard Operations
 
 | Operation | Contract |

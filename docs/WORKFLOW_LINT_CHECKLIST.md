@@ -11,6 +11,13 @@ Use this checklist periodically, before handoff, or whenever a topic feels expen
 
 Run the deeper sections only when a baseline check fails or the topic is still costly to navigate.
 
+## Document File Names
+
+- New authored pages follow the protocol's [Document File Names](../LLM_WORKFLOW.md#document-file-names) rule: a directory-local increasing numeric prefix with at least three digits.
+- Numbers are unique within each directory; allocation uses the highest previously allocated number plus one, including available history, rather than filling gaps or counting files.
+- Fixed entry/tool filenames, original raw attachments, and existing unnumbered pages are preserved; ordinary edits do not trigger renaming.
+- Concurrent allocation is serialized, and links are repaired when a move requires a new destination number.
+
 ## Read Policy
 
 - Every private instance has one routing entry; a feature or topic gets its own `index` only when it needs an independent route.

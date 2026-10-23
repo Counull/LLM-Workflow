@@ -11,6 +11,8 @@ Use this checklist to start a private project, client, research, or personal ins
 
 No registry, skill, custom agent, fixed directory tree, or copied protocol file is required.
 
+Keep fixed entry and status filenames. For additional authored pages, follow [Document File Names](../LLM_WORKFLOW.md#document-file-names): allocate the next directory-local number, for example `001-topic.md`, before adding its route link. Existing files do not need renaming.
+
 ## Thirty-Second Smoke Test
 
 Open a fresh conversation in the private instance. The setup passes when the agent:
